@@ -2,12 +2,11 @@
 
 Prototype Refactor
 
-
-
 */
 // 1. Copy and paste your code or the solution from yesterday
 
 // 2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
+
 /*
   === GameObject ===
   * createdAt
@@ -63,7 +62,7 @@ function CharacterStats({createdAt, name, dimensions, healthPoints}){
   // refactored CharacterStats
   
     class CharacterStats2 extends GameObject2 {
-        constructor({createdAt, name, dimensions, healthPoints}){
+        constructor(createdAt, name, dimensions, healthPoints){
              super(createdAt, name, dimensions);
              this.healthPoints = healthPoints;
         }
@@ -99,12 +98,13 @@ function Humanoid({createdAt, name, dimensions, healthPoints, team, weapons, lan
   // refactored Humanoid
 
     class Humanoid2 extends CharacterStats2 {
-      constructor(createdAt, name, dimensions, healthPoints, team, weapons, language){
+      constructor({createdAt, name, dimensions, healthPoints, team, weapons, language}){
         super(createdAt, name, dimensions, healthPoints);
         this.team = team;
         this.weapons = weapons;
         this.language = language;
     }
+
     greet(){
         return `${this.name} offers greeting in ${this.language}`;
     }
